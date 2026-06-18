@@ -137,6 +137,7 @@
   }
   .shot{display:block;overflow:hidden;background:var(--g1);margin:0;align-self:start;border:1px solid var(--line);}
   .shot img{width:100%;height:100%;object-fit:cover;display:block;}
+  .shot.round{border-radius:16px;}
   .hero-shot{height:min(88vh,840px);width:100%;border:0;display:block;}
   .ratio-16-9{aspect-ratio:16/9;}
   .ratio-1-1{aspect-ratio:1/1;}
@@ -147,8 +148,9 @@
   .ratio-wide{aspect-ratio:21/9;}
 
   .stack-2{display:grid;gap:clamp(16px,2.5vw,28px);}
-  @media(min-width:700px){.cols-2{grid-template-columns:1fr 1fr;}.cols-3{grid-template-columns:repeat(3,1fr);}.cols-4{grid-template-columns:repeat(4,1fr);}}
   .cols-2,.cols-3,.cols-4{display:grid;gap:clamp(16px,2.5vw,28px);grid-template-columns:1fr;}
+  @media(min-width:560px){.cols-2,.cols-3,.cols-4{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:860px){.cols-3{grid-template-columns:repeat(3,1fr);}.cols-4{grid-template-columns:repeat(4,1fr);}}
 
   /* wordmark display block */
   .wm{
@@ -177,6 +179,7 @@
   .varpair img{max-width:100%;max-height:46px;width:auto;height:auto;display:block;}
   .varlabel{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);}
   .varlabel b{color:var(--ink);font-weight:700;}
+  .loghead{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);font-weight:700;margin:clamp(32px,4.5vw,52px) 0 18px;padding-bottom:12px;border-bottom:1px solid var(--line);}
 
   /* color swatches */
   .swatches{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
@@ -195,7 +198,7 @@
 
   /* type specimen */
   .specimen{border:1px solid var(--line);background:var(--g1);padding:clamp(22px,3vw,34px);}
-  .specimen .aa{font-weight:800;font-size:clamp(56px,12vw,140px);line-height:.9;letter-spacing:-.02em;}
+  .specimen .aa{font-weight:800;font-size:clamp(56px,12vw,140px);line-height:.9;letter-spacing:-.02em;display:flex;align-items:flex-end;height:clamp(118px,15vw,168px);}
   .specimen.primary .aa{font-family:'Alte Haas Grotesk',sans-serif;font-weight:700;}
   .specimen.mono .aa{font-family:'Mono Trea',ui-monospace,monospace;font-weight:400;font-size:clamp(44px,9vw,104px);}
   .specimen.accent .aa{font-family:'Radwave',sans-serif;font-weight:400;font-size:clamp(50px,10.5vw,124px);}
@@ -215,9 +218,9 @@
   .btn .arrow{font-size:16px;}
   .download .note{font-family:var(--font-mono);font-size:12px;color:var(--faint);margin-top:18px;letter-spacing:.04em;}
   /* full-bleed closing download panel over Hero 02 */
-  .download-final{position:relative;padding:0;border-top:0;}
-  .download-shot{position:relative;height:min(88vh,860px);width:100%;overflow:hidden;margin:0;}
-  .download-shot img{width:100%;height:100%;object-fit:cover;display:block;}
+  .download-final{position:relative;padding:0;border-top:0;background:#000;}
+  .download-shot{position:relative;width:100%;margin:0;background:#000;}
+  .download-shot img{width:100%;height:auto;display:block;}
   .download-shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0) 48%);}
   .download-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;color:#fff;padding:clamp(54px,11vh,128px) 24px 0;}
   .download-overlay .kicker{color:rgba(255,255,255,.72);justify-content:center;margin-bottom:14px;}
@@ -229,10 +232,11 @@
   .btn-pill .arrow{font-size:16px;line-height:1;}
 
   /* footer */
-  footer{border-top:1px solid var(--line);padding:42px 0 60px;}
+  footer{border-top:1px solid rgba(255,255,255,.12);padding:42px 0 60px;background:#000;}
   .foot-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
-    font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+    font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);}
   .foot-inner .brandmark b{font-weight:700;}
+  footer .sp-logo svg{filter:invert(1);}
 
   /* small note tag for build-only annotations */
   .devnote{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--g4);text-transform:uppercase;margin-top:10px;}
@@ -273,14 +277,13 @@
     <div class="grid copy-media">
       <div>
         <p class="lede">This identity was drawn from the objects Boulder's music scene produced and left behind. Concert flyers, cassette tapes, record sleeves, newspaper ads. The graphic language of the era was already there. The job was to find it and bring it forward.</p>
-        <p class="lede">The wordmark is typographic only. Bold, condensed, and built from the same visual tradition as the album covers and packaging of the period. It doesn't announce itself as a museum identity. It feels like it belongs alongside the artifacts on display.</p>
+        <p class="lede">The wordmark is typographic only. Bold and built from the same visual tradition as the album covers and packaging of the period. It doesn't announce itself as a museum identity. It feels like it belongs alongside the artifacts on display.</p>
         <p class="lede">Inside the exhibit, the identity guides. Outside, it communicates. That's the line it holds across every application, from the banners on the street to the panel on the wall to the hat in the gift shop.</p>
       </div>
       <div class="ph ratio-16-9" data-label="Video walkthrough embed · 16:9">
         <span class="corner">▶ Video</span>
       </div>
     </div>
-    <p class="devnote">Swap this slot for the YouTube / Vimeo / Loop embed once the walkthrough is recorded.</p>
   </div></section>
 
   <!-- WORDMARK -->
@@ -291,7 +294,8 @@
     </div>
     <div class="grid copy-media">
       <div>
-        <p class="lede">The wordmark is type only. No icon, no supporting graphic. A condensed sans serif that reads clearly at any scale, from a two inch pin to a twelve foot banner.</p>
+        <p class="lede">The wordmark is type only. No icon, no supporting graphic. Bold and iconic, reminiscent of the era but built for contemporary viewing without feeling fake-vintage. It reads clearly at any scale, from a two inch pin to a twelve foot banner.</p>
+        <p class="lede">Boulder sits inside a holding shape, like a label stuck on a cassette tape. It's the one structural move in the mark, and it ties the name straight back to the format the exhibit is named for.</p>
       </div>
       <div class="stack-2">
         <div class="wm pos"><img src="images/wm-stacked-black.svg" alt="Boulder Mixtape stacked wordmark, positive"><small>Primary · positive</small></div>
@@ -306,37 +310,31 @@
       <div class="kicker"><span class="num">03</span><span>Exterior Banners</span></div>
       <h2>First impression, before the door</h2>
     </div>
-    <p class="caption" style="margin-bottom:34px;">The banners establish the identity before visitors walk in. Two color treatments give the museum flexibility, a single color option for versatility and a full palette version for impact.</p>
-    <div class="cols-2">
-      <figure class="shot" style="aspect-ratio:16/9;"><img src="images/exterior-banners-01.jpg" alt="Exterior Banners 01"></figure>
-      <figure class="shot" style="aspect-ratio:16/9;"><img src="images/exterior-banners-02.jpg" alt="Exterior Banners 02, alternate color"></figure>
+    <p class="caption" style="margin-bottom:34px;">The banners establish the identity before visitors walk in. They come in multiple color treatments that all work together, and the palette can even shift through the year, seasonal or just to draw attention in a new way. The museum can mix and match them as they see fit to best communicate what's happening. A photo gives a preview of what's inside, while the logo-heavy layouts carry strong branding and name recognition.</p>
+    <div class="stack-2">
+      <figure class="shot" style="aspect-ratio:16/9;width:100%;"><img src="images/exterior-banners-01.jpg" alt="Exterior Banners 01"></figure>
+      <figure class="shot" style="aspect-ratio:16/9;width:100%;"><img src="images/exterior-banners-02.jpg" alt="Exterior Banners 02, alternate color"></figure>
     </div>
   </div></section>
 
-  <!-- INTRO WALL PANEL -->
+  <!-- INTRO WALL + TRANSOM -->
   <section id="intro-wall"><div class="wrap">
     <div class="sec-head split">
-      <div class="kicker"><span class="num">04</span><span>Intro Wall Panel</span></div>
+      <div class="kicker"><span class="num">04</span><span>The Entrance</span></div>
       <h2>Setting the stage</h2>
     </div>
-    <p class="caption" style="margin-bottom:34px;">The intro wall panel is the first thing you read inside the exhibit. It carries the wordmark, the tagline, and enough context to orient you, then gets out of the way so the objects can take over.</p>
+    <p class="caption" style="margin-bottom:34px;">The intro wall panel comes right before you step into the exhibit. It sits inside the museum, past the main entrance, and you walk through the opening, with the transom overhead, to physically enter the show. It carries the wordmark, the tagline, and enough context to orient you, then gets out of the way so the objects can take over.</p>
     <figure class="shot" style="aspect-ratio:16/9;"><img src="images/intro-wall-panel.jpg" alt="Intro Wall Panel mockup"></figure>
-  </div></section>
 
-  <!-- TRANSOM -->
-  <section id="transom"><div class="wrap">
-    <div class="sec-head split">
-      <div class="kicker"><span class="num">05</span><span>Transom</span></div>
-      <h2>You're here</h2>
-    </div>
-    <p class="caption" style="margin-bottom:34px;">A single continuous read across the entrance. The wordmark holds the space without crowding it.</p>
+    <h3 style="margin-top:clamp(40px,6vw,72px);">Transom</h3>
+    <p class="caption" style="margin-bottom:34px;">A single continuous read across the opening overhead. The wordmark holds the space without crowding it.</p>
     <figure class="shot" style="aspect-ratio:16/9;"><img src="images/transom-01.jpg" alt="Transom 01, entrance banner mockup"></figure>
   </div></section>
 
   <!-- WAYFINDING -->
   <section id="wayfinding"><div class="wrap">
     <div class="sec-head split">
-      <div class="kicker"><span class="num">06</span><span>Wayfinding</span></div>
+      <div class="kicker"><span class="num">05</span><span>Wayfinding</span></div>
       <h2>Moving through the exhibit</h2>
     </div>
     <p class="caption" style="margin-bottom:34px;">Wayfinding is purely typographic. Large, legible, and spare. The identity does its job and steps aside.</p>
@@ -346,10 +344,11 @@
   <!-- DIDACTIC PANELS -->
   <section id="didactic"><div class="wrap">
     <div class="sec-head split">
-      <div class="kicker"><span class="num">07</span><span>Didactic Panels</span></div>
+      <div class="kicker"><span class="num">06</span><span>Didactic Panels</span></div>
       <h2>The grid that holds it together</h2>
     </div>
-    <p class="caption" style="margin-bottom:34px;">The panel system uses a consistent grid: exhibit header at the top, heading, body text, and a page number at the bottom. It works across every format the museum needs, square, wide, and narrow, without changing the underlying logic.</p>
+    <p class="caption" style="margin-bottom:18px;">The panels are easy to read and never pull attention from the artifacts, and the presentation plays well in every application.</p>
+    <p class="caption" style="margin-bottom:34px;">The details along the bottom are inspired by the information on a cassette tape insert, and they give credence to the work of building the exhibit. There's the official name of the artifact, an overall numbering system that lets someone find the piece they want and speaks to how robust the exhibit is, and a circa date that always points to the time period so a piece is understood in its historical context. That lets the headline stay expressive and the body copy explain, while the panel still carries the detail of what's on display.</p>
     <figure class="shot" style="aspect-ratio:16/9;"><img src="images/didactic-01.jpg" alt="Didactic 01, primary panel format mockup"></figure>
 
     <h3 style="margin-top:clamp(40px,6vw,72px);">Panel format variations</h3>
@@ -365,52 +364,53 @@
   <!-- SOCIAL -->
   <section id="social"><div class="wrap">
     <div class="sec-head split">
-      <div class="kicker"><span class="num">08</span><span>Social</span></div>
+      <div class="kicker"><span class="num">07</span><span>Social</span></div>
       <h2>Built for the feed</h2>
     </div>
-    <p class="caption" style="margin-bottom:34px;">The social format uses the full identity system, color, type, and layout, scaled for a square post. It's designed to stop the scroll without losing the exhibit's character.</p>
+    <p class="caption" style="margin-bottom:34px;">The social format uses the full identity system, color, type, and layout, sized for social posts rather than a square. It's designed to stop the scroll without losing the exhibit's character.</p>
     <figure class="shot" style="aspect-ratio:3/2;"><img src="images/social-01.jpg" alt="Social 01 mockup"></figure>
 
     <h3 style="margin-top:clamp(40px,6vw,72px);">All social formats</h3>
     <div class="cols-4" style="margin-top:14px;">
-      <figure class="shot" style="aspect-ratio:4/5;"><img src="images/social-post-1.jpg" alt="Social post 1"></figure>
-      <figure class="shot" style="aspect-ratio:4/5;"><img src="images/social-post-2.jpg" alt="Social post 2"></figure>
-      <figure class="shot" style="aspect-ratio:4/5;"><img src="images/social-post-3.jpg" alt="Social post 3"></figure>
-      <figure class="shot" style="aspect-ratio:4/5;"><img src="images/social-post-4.jpg" alt="Social post 4"></figure>
-      <figure class="shot" style="aspect-ratio:4/5;"><img src="images/social-post-5.jpg" alt="Social post 5"></figure>
-      <figure class="shot" style="aspect-ratio:4/5;"><img src="images/social-post-6.jpg" alt="Social post 6"></figure>
-      <figure class="shot" style="aspect-ratio:4/5;"><img src="images/social-post-7.jpg" alt="Social post 7"></figure>
-      <figure class="shot" style="aspect-ratio:4/5;"><img src="images/social-post-8.jpg" alt="Social post 8"></figure>
+      <figure class="shot round" style="aspect-ratio:4/5;"><img src="images/social-post-1.jpg" alt="Social post 1"></figure>
+      <figure class="shot round" style="aspect-ratio:4/5;"><img src="images/social-post-2.jpg" alt="Social post 2"></figure>
+      <figure class="shot round" style="aspect-ratio:4/5;"><img src="images/social-post-3.jpg" alt="Social post 3"></figure>
+      <figure class="shot round" style="aspect-ratio:4/5;"><img src="images/social-post-4.jpg" alt="Social post 4"></figure>
+      <figure class="shot round" style="aspect-ratio:4/5;"><img src="images/social-post-5.jpg" alt="Social post 5"></figure>
+      <figure class="shot round" style="aspect-ratio:4/5;"><img src="images/social-post-6.jpg" alt="Social post 6"></figure>
+      <figure class="shot round" style="aspect-ratio:4/5;"><img src="images/social-post-7.jpg" alt="Social post 7"></figure>
+      <figure class="shot round" style="aspect-ratio:4/5;"><img src="images/social-post-8.jpg" alt="Social post 8"></figure>
     </div>
   </div></section>
 
   <!-- CRM -->
   <section id="crm"><div class="wrap">
     <div class="sec-head split">
-      <div class="kicker"><span class="num">09</span><span>CRM</span></div>
+      <div class="kicker"><span class="num">08</span><span>CRM</span></div>
       <h2>Digital advertising</h2>
     </div>
     <p class="caption" style="margin-bottom:34px;">The CRM formats carry the same visual language into email and digital ads. Wide format shown here.</p>
     <figure class="shot" style="aspect-ratio:3/2;"><img src="images/crm-01.jpg" alt="CRM 01, wide email and digital ad mockup"></figure>
 
     <h3 style="margin-top:clamp(40px,6vw,72px);">All CRM formats</h3>
+    <p class="caption" style="margin-bottom:16px;">Formatted for both wide screen and square placements.</p>
     <div class="cols-2" style="margin-top:14px;">
-      <figure class="shot" style="aspect-ratio:16/9;"><img src="images/crm-wide-1.jpg" alt="CRM wide format 1"></figure>
-      <figure class="shot" style="aspect-ratio:16/9;"><img src="images/crm-wide-2.jpg" alt="CRM wide format 2"></figure>
-      <figure class="shot" style="aspect-ratio:1/1;"><img src="images/crm-square-1.jpg" alt="CRM square format 1"></figure>
-      <figure class="shot" style="aspect-ratio:1/1;"><img src="images/crm-square-2.jpg" alt="CRM square format 2"></figure>
+      <figure class="shot round" style="aspect-ratio:16/9;"><img src="images/crm-wide-1.jpg" alt="CRM wide format 1"></figure>
+      <figure class="shot round" style="aspect-ratio:16/9;"><img src="images/crm-wide-2.jpg" alt="CRM wide format 2"></figure>
+      <figure class="shot round" style="aspect-ratio:1/1;"><img src="images/crm-square-1.jpg" alt="CRM square format 1"></figure>
+      <figure class="shot round" style="aspect-ratio:1/1;"><img src="images/crm-square-2.jpg" alt="CRM square format 2"></figure>
     </div>
   </div></section>
 
   <!-- MERCHANDISE -->
   <section id="merch"><div class="wrap">
     <div class="sec-head split">
-      <div class="kicker"><span class="num">10</span><span>Merchandise</span></div>
+      <div class="kicker"><span class="num">09</span><span>Merchandise</span></div>
       <h2>Local, Live and Loud, to go</h2>
     </div>
 
     <h3>Shirts</h3>
-    <p class="caption" style="margin-bottom:28px;">The primary shirt leads with the wordmark. The second brings in the cassette, a nod to the exhibit's name and the era it celebrates.</p>
+    <p class="caption" style="margin-bottom:28px;">Putting the wordmark on a shirt turns visitors into walking signage and builds recognition for the exhibit. The look stands on its own, and the official Museum of Boulder logo can ride along as a secondary print on the back or a sleeve when an extra mark of officialness helps.</p>
     <div class="cols-2">
       <figure class="shot" style="aspect-ratio:2/3;"><img src="images/shirt-01.jpg" alt="Shirt 01, primary wordmark"></figure>
       <figure class="shot" style="aspect-ratio:3/2;"><img src="images/shirt-02.jpg" alt="Shirt 02, cassette graphic"></figure>
@@ -419,20 +419,20 @@
     <h3 style="margin-top:clamp(40px,6vw,68px);">Hat</h3>
     <figure class="shot" style="aspect-ratio:2/3;max-width:520px;"><img src="images/hat-01.jpg" alt="Hat 01 mockup"></figure>
 
-    <h3 style="margin-top:clamp(40px,6vw,68px);">Accessories and poster</h3>
-    <p class="caption" style="margin-bottom:28px;">The take-home merch. Non-sized items and the collectible poster, each carrying the identity on its own. The wordmark does the work without needing anything else.</p>
-    <div class="cols-4">
+    <h3 style="margin-top:clamp(40px,6vw,68px);">Accessories</h3>
+    <p class="caption" style="margin-bottom:28px;">Reproducing the wordmark across the merch increases the visibility of the identity, so people remember it. The different logo iterations can also drop into other layouts for more expression, like the tote and the poster.</p>
+    <div class="cols-3">
       <figure class="shot" style="aspect-ratio:3/4;"><img src="images/tote-01.jpg" alt="Tote 01, All Mixed Up"></figure>
       <figure class="shot" style="aspect-ratio:3/4;"><img src="images/bottle-01.jpg" alt="Bottle 01"></figure>
       <figure class="shot" style="aspect-ratio:3/4;"><img src="images/keychain-01.jpg" alt="Keychain 01"></figure>
-      <figure class="shot" style="aspect-ratio:3/4;"><img src="images/poster-01.jpg" alt="Poster 01, collectible exhibit poster"></figure>
     </div>
+    <figure class="shot" style="aspect-ratio:1128/861;width:100%;margin-top:clamp(16px,2.5vw,28px);"><img src="images/poster-01.jpg" alt="Poster 01, collectible exhibit poster"></figure>
   </div></section>
 
   <!-- BRAND KIT -->
   <section id="brand-kit"><div class="wrap">
     <div class="sec-head split">
-      <div class="kicker"><span class="num">11</span><span>Brand Kit</span></div>
+      <div class="kicker"><span class="num">10</span><span>Brand Kit</span></div>
       <h2>The system</h2>
     </div>
     <p class="lede" style="margin-bottom:clamp(48px,7vw,84px);">Everything that makes up the Boulder Mixtape visual identity.</p>
@@ -497,28 +497,38 @@
 
     <!-- image treatment -->
     <h3 style="margin-top:clamp(48px,7vw,80px);">Image Treatment</h3>
-    <p class="caption" style="margin-bottom:30px;">All photography is presented with dark film borders and analog contact sheet markings. The treatment is consistent across every application and keeps the photography grounded in the era of the exhibit.</p>
+    <p class="caption" style="margin-bottom:30px;">Marketing photography <em>may be</em> presented with dark film borders and analog contact sheet markings to ground it in the era. It's an option, not a rule, since not every photo needs it. This applies to marketing only and isn't a recommendation on how photography is presented inside the exhibit, which is the museum's call.</p>
     <div class="cols-2">
-      <div class="ph ratio-3-2" data-label="Untreated photo"></div>
-      <div class="ph ratio-3-2" data-label="Treated · film border + sprockets"></div>
+      <figure class="shot" style="aspect-ratio:1199/1011;"><img src="images/photo-plain.jpg" alt="Untreated photo"></figure>
+      <figure class="shot" style="aspect-ratio:1199/1011;"><img src="images/photo-edge.jpg" alt="Treated photo, film border and sprockets"></figure>
     </div>
 
     <!-- wordmark variations -->
-    <h3 style="margin-top:clamp(48px,7vw,80px);">Wordmark Variations</h3>
-    <p class="caption" style="margin-bottom:34px;">Every approved lockup, shown positive and reversed. The wordmark lockups come first, then the supporting graphics. Use the version that fits the application, with or without the tagline and dates depending on context.</p>
+    <h3 style="margin-top:clamp(48px,7vw,80px);">Logos and Lockups</h3>
+    <p class="caption" style="margin-bottom:10px;">Every approved logo, shown positive and reversed, grouped by how it is used. The system works with or without the tagline and dates depending on context.</p>
+
+    <div class="loghead">Wordmark Variations</div>
     <div class="vargrid">
-      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-wide-pos.svg" alt="Horizontal lockup"></div><div class="neg"><img src="images/var-wide-neg.svg" alt="Horizontal lockup reversed"></div></div><div class="varlabel"><b>Horizontal</b></div></div>
-      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-wide-tag-pos.svg" alt="Horizontal with tag"></div><div class="neg"><img src="images/var-wide-tag-neg.svg" alt="Horizontal with tag reversed"></div></div><div class="varlabel"><b>Horizontal + Tag</b></div></div>
-      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-stacked-pos.svg" alt="Stacked lockup"></div><div class="neg"><img src="images/var-stacked-neg.svg" alt="Stacked lockup reversed"></div></div><div class="varlabel"><b>Stacked</b></div></div>
-      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-stacked-tag-l-pos.svg" alt="Stacked with tag"></div><div class="neg"><img src="images/var-stacked-tag-l-neg.svg" alt="Stacked with tag reversed"></div></div><div class="varlabel"><b>Stacked + Tag</b></div></div>
-      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-stacked-tag-m-pos.svg" alt="Stacked with tag, medium"></div><div class="neg"><img src="images/var-stacked-tag-m-neg.svg" alt="Stacked with tag medium reversed"></div></div><div class="varlabel"><b>Stacked + Tag · M</b></div></div>
-      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-stacked-tag-s-pos.svg" alt="Stacked with tag, small"></div><div class="neg"><img src="images/var-stacked-tag-s-neg.svg" alt="Stacked with tag small reversed"></div></div><div class="varlabel"><b>Stacked + Tag · S</b></div></div>
-      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-tag-stacked-pos.svg" alt="Tag stacked"></div><div class="neg"><img src="images/var-tag-stacked-neg.svg" alt="Tag stacked reversed"></div></div><div class="varlabel"><b>Tag · Stacked</b></div></div>
-      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-tag-wide-l-pos.svg" alt="Tag wide"></div><div class="neg"><img src="images/var-tag-wide-l-neg.svg" alt="Tag wide reversed"></div></div><div class="varlabel"><b>Tag · Wide</b></div></div>
-      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-tag-wide-s-pos.svg" alt="Tag wide small"></div><div class="neg"><img src="images/var-tag-wide-s-neg.svg" alt="Tag wide small reversed"></div></div><div class="varlabel"><b>Tag · Wide S</b></div></div>
-      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-indicia-pos.svg" alt="Indicia"></div><div class="neg"><img src="images/var-indicia-neg.svg" alt="Indicia reversed"></div></div><div class="varlabel"><b>Indicia</b></div></div>
+      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-stacked-pos.svg" alt="Stacked"></div><div class="neg"><img src="images/var-stacked-neg.svg" alt="Stacked reversed"></div></div><div class="varlabel"><b>Stacked</b></div></div>
+      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-wide-pos.svg" alt="Horizontal"></div><div class="neg"><img src="images/var-wide-neg.svg" alt="Horizontal reversed"></div></div><div class="varlabel"><b>Horizontal</b></div></div>
+    </div>
+
+    <div class="loghead">Logo Lockups</div>
+    <div class="vargrid">
+      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-stacked-tag-s-pos.svg" alt="Stacked Tag Small"></div><div class="neg"><img src="images/var-stacked-tag-s-neg.svg" alt="Stacked Tag Small reversed"></div></div><div class="varlabel"><b>Stacked Tag S (Small)</b></div></div>
+      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-stacked-tag-m-pos.svg" alt="Stacked Tag Medium"></div><div class="neg"><img src="images/var-stacked-tag-m-neg.svg" alt="Stacked Tag Medium reversed"></div></div><div class="varlabel"><b>Stacked Tag M (Medium)</b></div></div>
+      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-stacked-tag-l-pos.svg" alt="Stacked Tag Large"></div><div class="neg"><img src="images/var-stacked-tag-l-neg.svg" alt="Stacked Tag Large reversed"></div></div><div class="varlabel"><b>Stacked Tag L (Large)</b></div></div>
+      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-wide-tag-pos.svg" alt="Wide Tag"></div><div class="neg"><img src="images/var-wide-tag-neg.svg" alt="Wide Tag reversed"></div></div><div class="varlabel"><b>Wide Tag</b></div></div>
+    </div>
+
+    <div class="loghead">Supporting Graphics</div>
+    <div class="vargrid">
+      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-tag-stacked-pos.svg" alt="Tag Stacked"></div><div class="neg"><img src="images/var-tag-stacked-neg.svg" alt="Tag Stacked reversed"></div></div><div class="varlabel"><b>Tag Stacked</b></div></div>
+      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-tag-wide-s-pos.svg" alt="Tag Wide Small"></div><div class="neg"><img src="images/var-tag-wide-s-neg.svg" alt="Tag Wide Small reversed"></div></div><div class="varlabel"><b>Tag Wide S (Small)</b></div></div>
+      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-tag-wide-l-pos.svg" alt="Tag Wide Large"></div><div class="neg"><img src="images/var-tag-wide-l-neg.svg" alt="Tag Wide Large reversed"></div></div><div class="varlabel"><b>Tag Wide L (Large)</b></div></div>
       <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-address-pos.svg" alt="Address"></div><div class="neg"><img src="images/var-address-neg.svg" alt="Address reversed"></div></div><div class="varlabel"><b>Address</b></div></div>
-      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-globe-pos.svg" alt="Museum of Boulder globe"></div><div class="neg"><img src="images/var-globe-neg.svg" alt="Museum of Boulder globe reversed"></div></div><div class="varlabel"><b>Museum of Boulder</b></div></div>
+      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-globe-pos.svg" alt="Museum Globe"></div><div class="neg"><img src="images/var-globe-neg.svg" alt="Museum Globe reversed"></div></div><div class="varlabel"><b>Museum Globe</b></div></div>
+      <div class="varitem"><div class="varpair"><div class="pos"><img src="images/var-indicia-pos.svg" alt="Indicia"></div><div class="neg"><img src="images/var-indicia-neg.svg" alt="Indicia reversed"></div></div><div class="varlabel"><b>Indicia</b></div></div>
     </div>
   </div></section>
 
@@ -526,7 +536,7 @@
   <section id="download" class="download-final">
     <figure class="download-shot"><img src="images/hero-02.jpg" alt="Boulder Mixtape illuminated exhibit sign"></figure>
     <div class="download-overlay">
-      <div class="kicker"><span class="num">12</span><span>Download</span></div>
+      <div class="kicker"><span class="num">11</span><span>Download</span></div>
       <h2>Ready to hand off</h2>
       <p class="sub">All production files included.</p>
       <a class="btn-pill" href="https://www.dropbox.com/scl/fo/xij74q12iv0g4dlzjlf62/AMpP7eptIdFDO71aPZicMAQ?rlkey=utmjppimsyhyaz2np08pln0dh&amp;dl=0" target="_blank" rel="noopener"><span class="arrow">↓</span> Download Brand Assets</a>
