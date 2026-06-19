@@ -231,6 +231,15 @@
   .btn-pill:hover{background:#e52c1e;color:#fff;}
   .btn-pill .arrow{font-size:16px;line-height:1;}
 
+  /* concept video poster (links to clip; Zoom blocks inline iframes) */
+  .videocard{position:relative;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:var(--ink);border:1px solid var(--ink);text-decoration:none;overflow:hidden;}
+  .videocard .vmark{width:min(46%,230px);height:auto;opacity:.92;}
+  .videocard .play{width:66px;height:66px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:.15s ease;}
+  .videocard .play::after{content:"";width:0;height:0;border-left:21px solid var(--ink);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:5px;}
+  .videocard:hover .play{background:#e52c1e;}
+  .videocard:hover .play::after{border-left-color:#fff;}
+  .videocard .vlabel{font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#fff;}
+
   /* footer */
   footer{border-top:1px solid rgba(255,255,255,.12);padding:42px 0 60px;background:#000;}
   .foot-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
@@ -290,9 +299,11 @@
         <p class="lede">The wordmark is typographic only. Bold and built from the same visual tradition as the album covers and packaging of the period. It doesn't announce itself as a museum identity. It feels like it belongs alongside the artifacts on display.</p>
         <p class="lede">Inside the exhibit, the identity guides. Outside, it communicates. That's the line it holds across every application, from the banners on the street to the panel on the wall to the hat in the gift shop.</p>
       </div>
-      <div class="wm pos" style="aspect-ratio:16/9;padding:clamp(24px,5vw,52px);">
-        <img src="images/var-stacked-tag-s-pos.svg" alt="Boulder Mixtape stacked tag lockup">
-      </div>
+      <a class="videocard" href="https://us06web.zoom.us/clips/share/fXn4BeQ2RWWVSwQKdTt5Qg" target="_blank" rel="noopener" aria-label="Watch the walkthrough video">
+        <img class="vmark" src="images/wm-stacked-white.svg" alt="">
+        <span class="play"></span>
+        <span class="vlabel">Watch the walkthrough</span>
+      </a>
     </div>
   </div></section>
 
@@ -367,7 +378,7 @@
       <figure class="shot" style="aspect-ratio:1/1;"><img src="images/didactic-square.jpg" alt="Didactic square format"></figure>
       <figure class="shot" style="aspect-ratio:2/1;"><img src="images/didactic-wide.jpg" alt="Didactic wide format"></figure>
       <figure class="shot" style="aspect-ratio:1100/1375;"><img src="images/didactic-portrait.jpg" alt="Didactic portrait format"></figure>
-      <figure class="shot" style="aspect-ratio:800/1999;"><img src="images/didactic-tall.jpg" alt="Didactic tall format"></figure>
+      <figure class="shot" style="aspect-ratio:1621/4051;"><img src="images/didactic-tall.jpg" alt="Didactic tall format"></figure>
     </div>
   </div></section>
 
